@@ -13,30 +13,85 @@ class MyApp extends StatelessWidget {
       // Application theme data, you can set the colors for the application as
       // you want
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.blueGrey,
       ),
       // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key? key}) : super(key: key);
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
 
+class _MyHomePageState extends State<MyHomePage> {
+  List<String> images = [
+    "assets/images/logo1.jpg",
+    "assets/images/logo2.jpg",
+    "assets/images/logo3.png",
+    "assets/images/logo4.png",
+    "assets/images/logo5.jpg",
+    "assets/images/logo6.jpg",
+    "assets/images/logo7.jpg",
+    "assets/images/logo8.jpg",
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
+        appBar: AppBar(
+          title: Text("Jmas Jrz"),
         ),
-      ),
-    );
+        body: GridView.count(
+          crossAxisCount: 1,
+          children: [
+            Container(
+              color: Color(0xff4ca8af),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Image.asset("assets/images/logo1.jpg"),
+                  Text("Casa", style: TextStyle(color: Colors.white))
+                ],
+              ),
+            ),
+            Container(
+              color: Color(0xff4ca8af),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Image.asset("assets/images/logo2.jpg"),
+                  Text("Juntas", style: TextStyle(color: Colors.white))
+                ],
+              ),
+            ),
+            Container(
+              color: Color(0xff4ca8af),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Image.asset("assets/images/logo3.png"),
+                  Text("Ubicaciones", style: TextStyle(color: Colors.white))
+                ],
+              ),
+            ),
+            Container(
+              color: Color(0xff4ca8af),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Image.asset("assets/images/logo4.png"),
+                  Text("Orders", style: TextStyle(color: Colors.white))
+                ],
+              ),
+            ),
+          ],
+          padding: EdgeInsets.all(10),
+          shrinkWrap: true,
+          mainAxisSpacing: 10,
+          crossAxisSpacing: 10,
+        ));
   }
 }
